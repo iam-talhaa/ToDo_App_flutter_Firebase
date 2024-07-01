@@ -23,10 +23,11 @@ class _SignUP_ScreenState extends State<SignUP_Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.lightGreen,
         title: Text(
           'SignUp Screen',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
       body: Padding(

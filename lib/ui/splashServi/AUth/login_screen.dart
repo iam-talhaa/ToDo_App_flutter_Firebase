@@ -1,9 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:todo_flutter_firebase/UTILS/utils.dart';
 import 'package:todo_flutter_firebase/WIDGETS/roundedButton.dart';
 import 'package:todo_flutter_firebase/ui/posts/postscreen.dart';
 import 'package:todo_flutter_firebase/ui/splashServi/AUth/signup_screen.dart';
+import 'package:todo_flutter_firebase/ui/splashServi/login_withPhoneNumer.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -137,6 +139,25 @@ class _LoginScreenState extends State<LoginScreen> {
                               style: TextStyle(color: Colors.blue),
                             ))
                       ],
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                LoginWithNumber()));
+                      },
+                      child: Container(
+                        height: 50,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            border: Border.all(color: Colors.black)),
+                        child: Center(
+                          child: Text(
+                            'Login With  PhoneNumber',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
                     )
                   ],
                 ))
