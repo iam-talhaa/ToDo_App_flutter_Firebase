@@ -1,11 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:todo_flutter_firebase/UTILS/utils.dart';
 import 'package:todo_flutter_firebase/WIDGETS/roundedButton.dart';
-import 'package:todo_flutter_firebase/ui/posts/postscreen.dart';
 import 'package:todo_flutter_firebase/ui/splashServi/AUth/signup_screen.dart';
-import 'package:todo_flutter_firebase/ui/splashServi/login_withPhoneNumer.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -16,7 +12,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool isloading = false;
-  FirebaseAuth _auth = FirebaseAuth.instance;
+
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passcontroller = TextEditingController();
@@ -41,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   children: [
                     Text(
-                      'Sign Up ',
+                      'Login ',
                       style: TextStyle(
                           fontSize: 40,
                           color: Colors.lightGreen,
@@ -98,31 +94,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     RoundedButton(
                         loading: isloading,
-                        name: 'Sign UP',
+                        name: 'Login',
                         ontap: () {
-                          if (_formKey.currentState!.validate()) {
-                            setState(() {
-                              isloading = true;
-                            });
-                            _auth
-                                .signInWithEmailAndPassword(
-                                    email: emailController.text.toString(),
-                                    password: passcontroller.text.toString())
-                                .then((value) {
-                              setState(() {
-                                isloading = false;
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        PostScreen()));
-                              });
-                              Utils().ShowToast("SignIn Successfully");
-                            }).onError((error, stackTrace) {
-                              setState(() {
-                                isloading = false;
-                              });
-                              Utils().ShowToast(error.toString());
-                            });
-                          }
+                          if (_formKey.currentState!.validate()) {}
                         }),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -142,9 +116,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                LoginWithNumber()));
+                        // Navigator.of(context).push(MaterialPageRoute(
+                        //     builder: (BuildContext context) =>
+                        //         LoginWithNumber()));
                       },
                       child: Container(
                         height: 50,
