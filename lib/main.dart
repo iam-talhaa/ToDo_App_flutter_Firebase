@@ -22,6 +22,7 @@ class ToDoAPP extends StatefulWidget {
 class _ToDoAPPState extends State<ToDoAPP> {
   @override
   Widget build(BuildContext context) {
+    print('TEsting');
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: LoginScreen(),
